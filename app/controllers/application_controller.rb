@@ -47,4 +47,14 @@ class ApplicationController < Sinatra::Base
     }
     info.to_json
   end 
+
+  get '/cities/:id/info' do
+    city = City.find(params[:id])
+    info = {
+      city_buildings: city.how_many,
+      oldest: city.oldest_building_in_city,
+      newest: city.newest_building_in_city
+    }
+    info.to_json
+  end
 end 

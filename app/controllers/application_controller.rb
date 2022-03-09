@@ -35,4 +35,16 @@ class ApplicationController < Sinatra::Base
     )
     new_building.to_json
   end
+
+  ### Version 2
+  get '/architects/:id/info' do
+    architect = Architect.find(params[:id])
+    info = {
+      number: architect.number_of_buildings,
+      locations: architect.building_locations,
+      oldest: architect.oldest_building,
+      newest: architect.newest_building
+    }
+    info.to_json
+  end 
 end 

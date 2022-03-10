@@ -1,8 +1,7 @@
 class Architect < ActiveRecord::Base
     has_many :buildings
     has_many :cities, through: :buildings
-
-
+    
     def number_of_buildings
         self.buildings.count
     end
